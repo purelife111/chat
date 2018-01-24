@@ -45,10 +45,11 @@ public class UserServiceImpl implements UserService {
             List<User> userList = userMapper.selectByExample(example);
             if (CollectionUtils.isEmpty(userList)){
                 userMapper.insertSelective(user);
+                return "succ";
             } else{
                 return "Name already in use!";
             }
         }
-        return "succ";
+        return "name or password is required！";
     }
 }
